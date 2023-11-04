@@ -6,6 +6,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp> 
+using namespace __gnu_pbds;
+typedef tree<long long int, null_type, less<long long int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set; //for multiset, use less_equal and erase x in multiset a -> a.erase(a.find_by_order(a.order_of_key(x)))
+
 #ifdef LOCAL
 #include "codes/debug.h"
 #else
