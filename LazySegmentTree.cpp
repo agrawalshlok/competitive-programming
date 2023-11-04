@@ -17,8 +17,8 @@ struct SegmentTree { // 1-based indexing
 		st.resize (4 * N + 5);
 		cLazy.assign (4 * N + 5, false);
 		lazy.assign (4 * N + 5, 0);
-        Build (1, 1, N, a);
-    }
+        	Build (1, 1, N, a);
+    	}
 
 	void merge (node &cur, node &l, node &r) {
 		cur.mn = min(l.mn, r.mn), cur.mx = max(l.mx, r.mx), cur.val = l.val + r.val; // this is the normal function which you want to do for parents using left and right child
@@ -29,9 +29,9 @@ struct SegmentTree { // 1-based indexing
 			cLazy[ver * 2] = cLazy[ver * 2 + 1] = 1;
 			lazy[ver * 2] += lazy[ver], lazy[ver * 2 + 1] += lazy[ver]; 
 		}   
-        st[ver].mn += lazy[ver], st[ver].mx += lazy[ver], st[ver].val += (R - L + 1) * lazy[ver]; // during lazy propagation you have to chg this line according to the condition
+        	st[ver].mn += lazy[ver], st[ver].mx += lazy[ver], st[ver].val += (R - L + 1) * lazy[ver]; // during lazy propagation you have to chg this line according to the condition
 		cLazy[ver] = 0;
-        lazy[ver] = 0;
+        	lazy[ver] = 0;
 	}
 
 	void Build (int ver, int L, int R, vector<int> &a) {
