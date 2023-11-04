@@ -13,8 +13,8 @@ struct SegmentTree { // 1-based indexing
 
 	SegmentTree (int _n, vector<int> &a) : N(_n) {
 		st.resize (4 * N + 5);
-        Build (1, 1, N, a);
-    }
+        	Build (1, 1, N, a);
+	}
 
 	void merge (node &cur, node &l, node &r) {
 		cur.mn = min(l.mn, r.mn), cur.mx = max(l.mx, r.mx), cur.val = l.val + r.val; // this is the normal function which you want to do for parents using left and right child
@@ -46,9 +46,9 @@ struct SegmentTree { // 1-based indexing
 
 	void Update (int ver, int L, int R, int pos, int val) {
 		if (L == R) {
-            st[ver].mx = val;
-            st[ver].mn = val;
-            st[ver].val = val;
+            		st[ver].mx = val;
+            		st[ver].mn = val;
+            		st[ver].val = val;
 			return;
 		}
 
