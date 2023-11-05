@@ -9,7 +9,14 @@ using namespace std;
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
 using namespace __gnu_pbds;
-typedef tree<long long int, null_type, less<long long int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set; //for multiset, use less_equal and erase x in multiset a -> a.erase(a.find_by_order(a.order_of_key(x)))
+using ordered_set = tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>; 
+
+using ordered_multiset = tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update>; 
+//erase x in multiset a -> a.erase(a.find_by_order(a.order_of_key(x)))
+
+template<class key, class value, class cmp = std::less<key>>
+using ordered_map = tree<key, value, cmp, rb_tree_tag, tree_order_statistics_node_update>;
+ordered_map<int, int> my_map;
 
 #ifdef LOCAL
 #include "codes/debug.h"
