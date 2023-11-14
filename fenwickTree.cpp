@@ -16,8 +16,4 @@ struct Fenwick {  // 1-based
         }
         return ans;
     }
-
-    T rangeSum (int l, int r) {
-        return sum(r) - sum(l);
-    }
 };
