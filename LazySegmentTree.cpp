@@ -13,7 +13,8 @@ struct SegmentTree { // 1-based indexing
 	vector<bool> cLazy;
 	vector<int> lazy;
 
-	SegmentTree (int _n, vector<int> &a) : N(_n) {
+	SegmentTree (vector<int> &a) {
+		N = a.size();
 		st.resize (4 * N + 5);
 		cLazy.assign (4 * N + 5, false);
 		lazy.assign (4 * N + 5, 0);
