@@ -6,6 +6,8 @@ using namespace std;
 
 template <typename T>
 std::ostream & operator << (std::ostream & os, const std::vector<T> & vec);
+template <typename T, size_t N>
+std::ostream &operator<<(std::ostream &os, const std::array<T, N> &vec);
 template <typename T>
 std::ostream & operator << (std::ostream & os, const std::set<T> & vec);
 template <typename T>
@@ -14,6 +16,7 @@ template<typename T1, typename T2>
 std::ostream & operator << (std::ostream & os, const std::pair<T1,T2> & p);
 template<typename T1, typename T2>
 std::ostream & operator << (std::ostream & os, const std::map<T1,T2> & p);
+
 template <typename T>
 std::ostream & operator << (std::ostream & os, const std::vector<T> & vec){
     os << "{";
@@ -26,6 +29,20 @@ std::ostream & operator << (std::ostream & os, const std::vector<T> & vec){
     os << "}";
     return os;
 }
+
+template <typename T, size_t N>
+std::ostream &operator<<(std::ostream &os, const std::array<T, N> &vec) {
+    os << "{";
+    bool flag = 0;
+    for(auto elem : vec) {
+        if(!flag) os << elem;
+        else os << " " << elem;
+        flag = 1;
+    }
+    os << "}";
+    return os;
+}
+
 template <typename T>
 std::ostream & operator << (std::ostream & os, const std::set<T> & vec){
     os << "{";
