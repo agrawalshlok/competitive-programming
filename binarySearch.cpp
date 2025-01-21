@@ -16,30 +16,6 @@ int find_first_false(const vector<bool>& b) {
     // for TTTTFFFFF -> r returns the first false, l returns the last true
 }
 
-void binary_search_on_answer(ll tc) {
-    ll n;
-    cin >> n;
-    vector<ll> a(n);
-    //sortA(a);
-    ll l = a[n - 1], r = 1e10;
-    while(r > l) {
-        ll mid = (r + l) / 2, curr = 0;
-        for(ll i = 0; i < n; i++) curr += mid - a[i];
-        if(curr >= mid) r = mid;
-        else l = mid + 1;
-    }
-    cout << r << "\n";
-    /*
-    for FFFFTTT -- to find the first true
-    for TTTTFFF distribution -- to find the last true
-    while(l < r) {
-        ll mid = (l + r + 1) / 2;
-        if(mid is true) l = mid;
-        else r = mid - 1
-    }
-    cout << r << nl;
-    */
-}
 bool search(int x[], int n, int k) {
     int l = 0, r = n-1;
     while (l <= r) {
