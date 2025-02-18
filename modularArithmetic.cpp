@@ -145,8 +145,8 @@ struct _m_int {
 template<const int64_t &MOD> _m_int<MOD> _m_int<MOD>::save_inv[_m_int<MOD>::SAVE_INV];
  
 const int64_t mod = (int64_t)MOD;
-using mod_int = _m_int<mod>;
-vector<mod_int> _factorial = {1}, _inv_factorial = {1};
+using mint = _m_int<mod>;
+vector<mint> _factorial = {1}, _inv_factorial = {1};
  
 void prepare_factorials(int64_t maximum) {
   static int64_t prepared_maximum = 0;
@@ -170,37 +170,37 @@ void prepare_factorials(int64_t maximum) {
   prepared_maximum = maximum;
 }
  
-mod_int factorial(int64_t n) {
+mint factorial(int64_t n) {
   if (n < 0) return 0;
   prepare_factorials(n);
   return _factorial[n];
 }
  
-mod_int inv_factorial(int64_t n) {
+mint inv_factorial(int64_t n) {
   if (n < 0) return 0;
   prepare_factorials(n);
   return _inv_factorial[n];
 }
  
-mod_int choose(int64_t n, int64_t r) {
+mint choose(int64_t n, int64_t r) {
   if (r < 0 || r > n) return 0;
   prepare_factorials(n);
   return _factorial[n] * _inv_factorial[r] * _inv_factorial[n - r];
 }
  
-mod_int permute(int64_t n, int64_t r) {
+mint permute(int64_t n, int64_t r) {
   if (r < 0 || r > n) return 0;
   prepare_factorials(n);
   return _factorial[n] * _inv_factorial[n - r];
 }
  
-mod_int inv_choose(int64_t n, int64_t r) {
+mint inv_choose(int64_t n, int64_t r) {
   assert(0 <= r && r <= n);
   prepare_factorials(n);
   return _inv_factorial[n] * _factorial[r] * _factorial[n - r];
 }
  
-mod_int inv_permute(int64_t n, int64_t r) {
+mint inv_permute(int64_t n, int64_t r) {
   assert(0 <= r && r <= n);
   prepare_factorials(n);
   return _inv_factorial[n] * _factorial[n - r];
