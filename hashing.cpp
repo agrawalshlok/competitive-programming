@@ -2,6 +2,9 @@
 using namespace std;
 
 // for int
+#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp> 
+using namespace __gnu_pbds;
 struct custom_hash {
   static uint64_t splitmix64(uint64_t x) {
     x += 0x9e3779b97f4a7c15;
